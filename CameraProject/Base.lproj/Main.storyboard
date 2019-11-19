@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,17 +12,53 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CameraProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6Q-yf-pQu">
-                                <rect key="frame" x="20" y="56" width="374" height="680"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z6Q-yf-pQu">
+                                <rect key="frame" x="16" y="12" width="343" height="529"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjX-DJ-7KO">
+                                <rect key="frame" x="68" y="569" width="46" height="30"/>
+                                <state key="normal" title="カメラ"/>
+                                <connections>
+                                    <action selector="runCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JAq-F4-ehu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk5-KG-KYk">
+                                <rect key="frame" x="250" y="569" width="62" height="30"/>
+                                <state key="normal" title="アルバム"/>
+                                <connections>
+                                    <action selector="runAlbum:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EPg-zH-LHv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWm-bO-m7g">
+                                <rect key="frame" x="172" y="576" width="31" height="30"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="savePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Bc-Vo-t4b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JjX-DJ-7KO" firstAttribute="top" secondItem="z6Q-yf-pQu" secondAttribute="bottom" constant="28" id="1xu-aV-YCR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zk5-KG-KYk" secondAttribute="trailing" constant="63" id="GfH-S3-Ft1"/>
+                            <constraint firstItem="rWm-bO-m7g" firstAttribute="top" secondItem="z6Q-yf-pQu" secondAttribute="bottom" constant="96" id="JOf-x5-dQ9"/>
+                            <constraint firstItem="JjX-DJ-7KO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="Ld3-FG-FP2"/>
+                            <constraint firstItem="z6Q-yf-pQu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="WFG-Hr-jdt"/>
+                            <constraint firstItem="z6Q-yf-pQu" firstAttribute="centerX" secondItem="rWm-bO-m7g" secondAttribute="centerX" id="cq6-84-IiG"/>
+                            <constraint firstItem="rWm-bO-m7g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="192" id="pdr-Mm-tOM"/>
+                            <constraint firstItem="z6Q-yf-pQu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rcy-5y-wBZ"/>
+                            <constraint firstItem="JjX-DJ-7KO" firstAttribute="baseline" secondItem="zk5-KG-KYk" secondAttribute="baseline" id="unb-uT-rnk"/>
+                            <constraint firstItem="z6Q-yf-pQu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xXR-oa-aS1"/>
+                            <constraint firstItem="rWm-bO-m7g" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xqK-ul-Uky"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="z6Q-yf-pQu" id="ymE-wp-WTx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
